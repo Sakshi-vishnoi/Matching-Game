@@ -1,46 +1,99 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #F1F7ED; /* Consistent background color */
+    color: #54494B; /* Dark text color for readability */
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
+    height: 100vh; /* Full viewport height */
+    text-align: center; /* Center text alignment */
 }
 
 .container {
+    max-width: 800px; /* Increased max-width for better layout */
+    padding: 20px;
+    background-color: #E3D081; /* Light tan background for the container */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+h1 {
+    color: #B33951; /* Dark pink color for headings */
+    font-size: 2em; /* Larger font size for headings */
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 14px;
+    background-color: #B33951; /* Dark pink color for buttons */
+    color: #F1F7ED; /* Light text color for buttons */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 20px 0px -2px 0px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #91C7B1; /* Teal color for button hover */
+    transform: scale(1.05); /* Slightly scale up button on hover */
+}
+
+.button-group {
+    display: flex;
+    gap: 10px; /* Space between buttons */
+}
+
+#game-message {
+    font-size: 24px;
+    color: #B33951; /* Dark pink color for game messages */
+    margin-bottom: 20px;
+    font-weight: bold;
     text-align: center;
+     background-color: #E3D081; /* Light tan background for better visibility */
+    padding: 10px;
+    border-radius: 5px;
 }
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(4, 100px);
-    grid-gap: 10px;
-    margin: 20px auto;
+    grid-template-columns: repeat(4, 80px); /* Grid layout for cards */
+    gap: 10px;
+    justify-content: center;
+    margin: 0 auto; /* Center the game board horizontally */
 }
 
 .card {
-    width: 100px;
-    height: 100px;
-    background-color: #ddd;
+    width: 80px;
+    height: 80px;
+    background-color: #54494B; /* Dark grayish-brown color for cards */
+    color: #E3D081; /* Light tan color for card text */
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+    font-size: 30px;
     cursor: pointer;
-    font-size: 24px;
-    color: transparent;
-    transition: background-color 0.3s;
+    border-radius: 5px; /* Rounded corners for cards */
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.card.flipped, .card.matched {
-    background-color: #fff;
-    color: #000;
+.card.flipped {
+    background-color: #E3D081; /* Light tan color for flipped cards */
+    color: #54494B; /* Dark grayish-brown color for text */
 }
 
 .card.matched {
-    cursor: default;
+    background-color: #91C7B1; /* Teal color for matched cards */
+    color: #F1F7ED; /* Light text color */
 }
 
 .info {
-    margin-top: 20px;
+    font-size: 16px;
+    color: #54494B; /* Dark text color for info */
+     display: flex;
+    flex-direction: column;
+    align-items: center;
 }
