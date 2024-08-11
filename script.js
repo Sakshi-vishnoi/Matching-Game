@@ -178,6 +178,7 @@ function checkGameOver() {
 
 // End game
 function endGame(message) {
+    clearInterval(timerInterval); // Stop the timer
     showMessage(message);
     document.getElementById('start-match').disabled = false; // Re-enable button
 }
