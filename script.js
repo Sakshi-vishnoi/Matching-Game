@@ -40,6 +40,9 @@ function flipCard() {
     if (lockBoard) return;
     if (this === firstCard) return;
 
+    // Prevent flipping if the game is over or move limit is reached
+    if (moves >= moveLimit || document.getElementById('game-message').textContent !== '') return;
+
     this.classList.add('flipped');
     this.textContent = this.dataset.value;
 
@@ -122,6 +125,7 @@ function formatTime(seconds) {
     const secs = (seconds % 60).toString().padStart(2, '0');
     return `${minutes}:${secs}`;
 }
+
 let isPaused = false;
 
 // Pause game
@@ -135,22 +139,6 @@ function pauseGame() {
         document.getElementById('pause-game').textContent = 'Resume';
         isPaused = true;
     }
-}
-
-// Reset game
-function resetGame() {
-    clearInterval(timerInterval); // Stop timer
-    timeElapsed = 0;
-    moves = 0;
-    document.getElementById('moves').textContent = moves;
-    document.getElementById('move-limit').textContent = moveLimit;
-    document.getElementById('time-left').textContent = formatTime(timeLimit);
-    initGame();
-    startTimer();
-    document.getElementById('start-match').disabled = true; // Disable button
-    document.getElementById('pause-game').textContent = 'Pause'; // Reset pause button text
-    isPaused = false; // Ensure game is not paused
-    showMessage(''); // Clear message on game start
 }
 
 // Event listeners
